@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Homework_1st_week</title>
+    <style>
+        .body {
+            font-family: 'Noto Sans KR', sans-serif !important;
+        }
+        .wrap {
+            width: 1020px;
+            border: 1px solid black;
+            margin: 50px auto;
+        }
+        .wrap > .img {
+            width: 800px;
+            height: 400px;
+            border: 1px solid black;
+            margin: 25px auto;
+            
+            line-height:400px;
+            text-align:center;
+            font-size: 40px;
+        }
+        .prd_info {
+            margin: 25px 50px 40px;
+        }
+        h1 {
+            margin-bottom: 25px;
+            font-weight:800;
+        }
+        p, table {
+            font-size: 22px;
+        }
+        .small_letter {
+            font-size:22px;
+            font-weight: normal;
+        }
+        .order {
+            margin: 20px 50px;
+        }
+        td {
+            padding:8px;
+        }
+        input, select {
+            width: 350px;
+            height: 55px;
+            border: 1px solid black;
+            border-radius: 7px;
+            background-color: white;
+        }
+        #submit_order {
+            display: block; /* inline은 margin으로 가운데 정렬을 할 수 없기 때문 */
+            margin: 0px auto 15px; 
+            font-size: 23px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="img">상품 사진</div>
+        <!--
+        <img src="#" alt="상품 사진">
+        -->
+        <div class="prd_info">
+            <h1>상품제목 &nbsp&nbsp<span class="small_letter">가격: 1,000,000원 / 개</span></h1>
+            <p>이 상품으로 말할 것 같으면 용왕이 찾지 못한 토끼의 간을 찾아 빨간망토의 늑대와 아기 돼지 삼형제의 숨결이 고루 녹아 있는 먹으면 120세까지 살 수 있다는 이 상품으로 말할 것 같으면 용왕이 찾지 못한 토끼의 간을 찾아 빨간망토의 늑대와 아기 돼지...</p>
+        </div>
+        <div class="order">
+            <h1 style="margin-bottom:10px;">주문하기</h1>
+            <form name="order_form">
+                <table name="order_table">
+                    <tr>
+                        <td>주문자 성함:</td>
+                        <td><input type="text" id="name"></td>
+                    </tr>
+                    <tr>
+                        <td>수량:</td>
+                        <td>
+                            <select id="amount">
+                                <option value="" selected></option>
+                                <option value="1pc">1개</option>
+                                <option value="2pcs">2개</option>
+                                <option value="3pcs">3개</option>
+                                <option value="4pcs">4개</option>
+                                <option value="5pcs">5개</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr><td>주소:</td>
+                        <td><input type="text" id="address"></td>
+                    </tr>
+                    <tr>
+                        <td>전화번호:</td>
+                        <td><input type="number"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <input type="submit" id="submit_order" value="주문하기">
+    </div>
+</body>
+
+</html>
