@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Webpage Title -->
+    <title>Hello, world!</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .body {
+            font-family: 'Noto Sans KR', sans-serif !important;
+        }
+
+        .wrap {
+            width: 900px;
+            margin: auto;
+        }
+
+        .posting_box {
+            width: 400px;
+            margin: 30px auto;
+            border: #f7f7f9 3px solid;
+            padding: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .comment {
+            color: cornflowerblue !important;
+            font-weight: bold;
+        }
+
+        .card-title {
+            color: dimgray;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: dimgray;
+        }
+    </style>
+    <script>
+
+        function reset_val() {
+            $('.form-control').val('');
+        }
+        // crit = criteria
+        function posting_box() {
+            let crit_display = $('.posting_box').css('display');
+            if (crit_display == 'none') {
+                $('.posting_box').css('display', 'block');
+                $('#posting_box_btn').text('포스팅박스 닫기');
+            } else {
+                $('.posting_box').css('display', 'none');
+                $('#posting_box_btn').text('포스팅박스 열기');
+                reset_val();
+            }
+        }
+
+        let count = 1;
+        function save_url() {
+            // 판단 ----- value 가 undefined일떄
+            if (!$('#article_url').val()) {
+                console.log($('#article_url').val())
+                alert('url을 입력해주세요!');
+                return 
+            } else if (!$('#article_comment').val()) {
+                alert('comment를 입력해주세요!');
+                return 
+            }
+
+
+            // 템플렛 붙이는 코드
+            let temp_html = '<div class="card" style="width: 18rem;">\
+                                <img class="card-img-top" src="https://www.fodors.com/wp-content/uploads/2018/10/4_UltimateRome_PiazzaNavona-975x650.jpg" alt="Card image cap">\
+                                <div class="card-body">\
+                                    <h5 class="card-title"> '+ $('#article_url').val() + '</h5>\
+                                    <p class="card-text">'+ count + ' 번째 기사입니다.</p>\
+                                    <p class="card-text comment">'+ $('#article_comment').val() + '</p>\
+                                </div>\
+                                </div>\
+                            </div>';
+            $('.card-columns').append(temp_html);
+            // 포스팅박스 안에 내용 삭제
+            reset_val();
+            count++;
+            // 포스팅박스를 삭제
+            $('.posting_box').css('display', 'none');
+            $('#posting_box_btn').text('포스팅박스 열기');
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="jumbotron">
+            <h1 class="display-4">나홀로 링크 메모장!</h1>
+            <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다.</p>
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" id="posting_box_btn" onclick="posting_box()" href="#"
+                    role="button">포스팅박스 열기</a>
+            </p>
+        </div>
+
+        <form>
+            <div class="posting_box">
+                <div class="form-group">
+                    <label for="article_url">아티클 URL</label>
+                    <input type="text" class="form-control" id="article_url" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <label for="article_comment">간단 코멘트</label>
+                    <!--
+              <input type="text-area" class="form-control" id="exampleInputPassword1" >
+              -->
+                    <textarea class="form-control" id="article_comment" rows="3"></textarea>
+                </div>
+                <div class="form-check">
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="save_url()">기사 저장</button>
+        </form>
+    </div>
+
+    <div class="card-columns">
+
+
+    </div>
+    </div>
+</body>
+
+</html>

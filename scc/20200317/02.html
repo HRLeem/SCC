@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>02</title>
+    <style>
+        .wrap {
+            width: 600px;
+            margin: 10px auto;
+        }
+    </style>
+    <script>
+        function show_value() {
+            alert($('#posting-url').val());
+        }
+
+        function show() {
+            $('form').show();
+        }
+
+        function hide() {
+            $('form').hide();
+        }
+    </script>
+</head>
+<body>
+    <div class="wrap">
+<div class="form-post">
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">아티클 URL</label>
+        <input id="posting-url" class="form-control" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">간단 코멘트</label>
+        <input class="form-control" placeholder="">
+      </div>
+      <button type="button" onclick="show_value()" class="btn btn-primary">기사저장</button>
+    </form>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="control">
+      <button class="btn btn-primary" id="show" onclick="show()">show</button>
+      <button class="btn btn-primary" id="hide" onclick="hide()">hide</buton>
+  </div>
+</div>
+</body>
+</html>

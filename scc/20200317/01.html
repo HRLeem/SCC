@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Webpage Title -->
+    <title>Hello, world!</title>
+
+    <!--Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
+
+    <!-- style -->
+    <style type="text/css">
+        * {
+            font-family: 'Stylish', sans-serif;
+        }
+
+        .wrap {
+            width: 35.1px;
+            margin: 120px auto;
+        }
+        button {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    <script>
+        /*
+        let num = 0;
+        function sival() {
+            // num += 1;
+            num++;
+            console.log(num);
+
+        }       
+        */
+        let a = ['사과','감','감','배','포도','포도','딸기','포도','감','수박','딸기']
+        let c = 0;
+
+        function count_this() {
+            for (let i = 0 ; i<a.length; i++) {
+                if ( a[i] == '딸기') {
+                    c ++;
+                }
+
+                if ( c == 2) {
+                    break;
+                }
+            }
+            console.log('딸기 :' + c);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <button onclick="count_this()" value="Click!">Click!</button>
+    </div>
+</body>
+
+</html>
