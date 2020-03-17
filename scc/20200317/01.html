@@ -55,14 +55,19 @@
         let c = 0;
 
         function count_this() {
+            if (c>0) {
+                return alert('딸기 2개라고. 고만 쳐눌러');
+                // console.log('딸기 :' + c);
+            }
             for (let i = 0 ; i<a.length; i++) {
                 if ( a[i] == '딸기') {
                     c ++;
                 }
-
+                /*
                 if ( c == 2) {
                     break;
                 }
+                */
             }
             console.log('딸기 :' + c);
         }
