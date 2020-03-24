@@ -1,0 +1,63 @@
+.body {
+    font-family: 'Noto Sans KR', sans-serif !important;
+}
+
+.wrap {
+    width: 900px;
+    margin: auto;
+}
+
+.posting_box {
+    width: 400px;
+    margin: 30px auto;
+    border: #f7f7f9 3px solid;
+    padding: 20px;
+    border-radius: 5px;
+    display: none;
+}
+
+
+.card-title {
+    color: dimgray;
+    font-weight: bold;
+}
+
+.card-text {
+    color: dimgray;
+    font-size: 13px;
+}
+.title-wrap {
+    height: 24px;
+    overflow: hidden;
+}
+.comment-wrap {
+    height: 44px;
+    overflow: hidden;
+}
+.content-wrap {
+    height: 57px;
+    overflow: hidden;
+}
+.comment {
+    color: cornflowerblue !important;
+    font-weight: bold;
+    font-size:15px;
+}
+.card-img {
+    widows: 286px;
+    height: 408.7px !important;
+}
+
+.t1{
+    display: none;
+    width: 500px;
+    margin: 10px auto;
+}
+.t1_btn {
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+.jumbotron_t1 {
+    display: block;
+}

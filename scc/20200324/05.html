@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="./css/05.css">
 
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -25,67 +25,43 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-    <style>
-        .body {
-            font-family: 'Noto Sans KR', sans-serif !important;
-        }
-
-        .wrap {
-            width: 900px;
-            margin: auto;
-        }
-
-        .posting_box {
-            width: 400px;
-            margin: 30px auto;
-            border: #f7f7f9 3px solid;
-            padding: 20px;
-            border-radius: 5px;
-            display: none;
-        }
-
-        .comment {
-            color: cornflowerblue !important;
-            font-weight: bold;
-        }
-
-        .card-title {
-            color: dimgray;
-            font-weight: bold;
-        }
-
-        .card-text {
-            color: dimgray;
-        }
-    </style>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $.ajax({
-                type:"GET"
+                type: "GET"
                 , url: "http://spartacodingclub.shop/post"
                 , data: {}
-                , success: function(res) {
+                , success: function (res) {
                     let em = res["articles"];
-                    for (let i=0; i<5; i++ )
-                    let comment = em[i].comment;
-                    let desc = em[i].desc;
-                    let img = em[i].image;
-                    let title = em[i].title;
-                    let url = em[i].url;
+                    for (let i = 0; i < 6; i++) {
+                        let comment = em[i].comment;
+                        let desc = em[i].desc;
+                        let img = em[i].image;
+                        let title = em[i].title;
+                        let url = em[i].url;
 
-                    let temp = '<div class="card" style="width: 18rem;">\
-                                        <img class="card-img-top" src="'+ img +'" alt="Card image cap">\
+                        let temp = '<div class="card" style="width: 18rem;">\
+                                        <img class="card-img-top card-img" src="'+ img + '" alt="Card image cap">\
                                         <div class="card-body">\
-                                            <h5 class="card-title"> '+ title + '</h5>\
-                                            <p class="card-text">'+ desc + ' 번째 기사입니다.</p>\
-                                            <p class="card-text comment">'+ comment + '</p>\
+                                            <div class="title-wrap">\
+                                                <h5 class="card-title"> '+ title + '</h5>\
+                                            </div>\
+                                            <div class="content-wrap">\
+                                                <p class="card-text">'+ desc + ' 번째 기사입니다.</p>\
+                                            </div>\
+                                            <div class="comment-wrap">\
+                                                <p class="card-text comment">'+ comment + '</p>\
+                                            <div>\
                                         </div>\
-                                        </div>\
-                                    </div>';
-                    $('.card-columns').append(temp);
+                                    </div>\
+                                </div>';
+                        $('.card-columns').append(temp);
+                    }
+
                 }
-            })
-        })
+            });
+        });
+
         function reset_val() {
             $('.form-control').val('');
         }
@@ -108,10 +84,10 @@
             if (!$('#article_url').val()) {
                 console.log($('#article_url').val())
                 alert('url을 입력해주세요!');
-                return 
+                return
             } else if (!$('#article_comment').val()) {
                 alert('comment를 입력해주세요!');
-                return 
+                return
             }
 
 
@@ -134,12 +110,25 @@
             $('#posting_box_btn').text('포스팅박스 열기');
 
         }
+        
+        function t1() {
+            $('html, body').scrollTop(0);
+            $('.t1').css('display', 'block');
+            $('.jumbotron_t1').css('display', 'none');
+            setTimeout(function () {
+                alert("힝 속았지?");
+            },50);
+        }
     </script>
 </head>
 
 <body>
     <div class="wrap">
         <div class="jumbotron">
+            <div class="t1">
+                <img src="https://t1.daumcdn.net/liveboard/maxim/58d394f7ab304c2eb73f5bf0a84125d6.jpg">
+            </div>
+                        <div class="jumbotron_t1">
             <h1 class="display-4">나홀로 링크 메모장!</h1>
             <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다.</p>
             <hr class="my-4">
@@ -148,6 +137,7 @@
                     role="button">포스팅박스 열기</a>
             </p>
         </div>
+    </div>
 
         <form>
             <div class="posting_box">
@@ -171,6 +161,9 @@
     <div class="card-columns">
 
 
+    </div>
+    <div class="t1_btn">
+        <button type="button" class="btn btn-info" onclick="t1()">더 보기</button>
     </div>
     </div>
 </body>
