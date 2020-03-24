@@ -40,21 +40,7 @@
                         let title = em[i].title;
                         let url = em[i].url;
 
-                        let temp = '<div class="card" style="width: 18rem;">\
-                                        <img class="card-img-top card-img" src="'+ img + '" alt="Card image cap">\
-                                        <div class="card-body">\
-                                            <div class="title-wrap">\
-                                                <h5 class="card-title"> '+ title + '</h5>\
-                                            </div>\
-                                            <div class="content-wrap">\
-                                                <p class="card-text">'+ desc + ' 번째 기사입니다.</p>\
-                                            </div>\
-                                            <div class="comment-wrap">\
-                                                <p class="card-text comment">'+ comment + '</p>\
-                                            <div>\
-                                        </div>\
-                                    </div>\
-                                </div>';
+                        let temp = make_temp(img, title, desc, comment);
                         $('.card-columns').append(temp);
                     }
 
@@ -78,6 +64,7 @@
             }
         }
 
+
         let count = 1;
         function save_url() {
             // 판단 ----- value 가 undefined일떄
@@ -90,17 +77,29 @@
                 return
             }
 
-
             // 템플렛 붙이는 코드
-            let temp_html = '<div class="card" style="width: 18rem;">\
-                                <img class="card-img-top" src="https://www.fodors.com/wp-content/uploads/2018/10/4_UltimateRome_PiazzaNavona-975x650.jpg" alt="Card image cap">\
-                                <div class="card-body">\
-                                    <h5 class="card-title"> '+ $('#article_url').val() + '</h5>\
-                                    <p class="card-text">'+ count + ' 번째 기사입니다.</p>\
-                                    <p class="card-text comment">'+ $('#article_comment').val() + '</p>\
-                                </div>\
-                                </div>\
-                            </div>';
+            /*
+            function test() {
+                let test =''
+            $.ajax({
+                type: "GET"
+                , url: "https://api.thecatapi.com/v1/images/search"
+                , data: {}
+                , success: function (res) {
+                    text = res[0].url;
+                    test = sibal.text();
+                    console.log(test);
+
+                }
+            });
+                return test;
+            }
+            */
+            let img = "https://movie-img.yes24.com/NYes24/MOVIE//M35/M53/M00002355350_162651.jpg";
+            let title = $('#article_url').val();
+            let desc = count + '번째 기사입니다.';
+            let comment = $('#article_comment').val();
+            let temp_html = make_temp(img, title, desc, comment);
             $('.card-columns').append(temp_html);
             // 포스팅박스 안에 내용 삭제
             reset_val();
@@ -108,16 +107,34 @@
             // 포스팅박스를 삭제
             $('.posting_box').css('display', 'none');
             $('#posting_box_btn').text('포스팅박스 열기');
-
         }
-        
+
+        function make_temp(img, title, desc, comment) {
+            let temp = '<div class="card" style="width: 18rem;">\
+                                        <img class="card-img-top card-img" src="'+ img + '" alt="Card image cap">\
+                                        <div class="card-body">\
+                                            <div class="title-wrap">\
+                                                <h5 class="card-title"> '+ title + '</h5>\
+                                            </div>\
+                                            <div class="content-wrap">\
+                                                <p class="card-text">'+ desc + '</p>\
+                                            </div>\
+                                            <div class="comment-wrap">\
+                                                <p class="card-text comment">'+ comment + '</p>\
+                                            <div>\
+                                        </div>\
+                                    </div>\
+                                </div>';
+            return temp;
+        }
+
         function t1() {
             $('html, body').scrollTop(0);
             $('.t1').css('display', 'block');
             $('.jumbotron_t1').css('display', 'none');
             setTimeout(function () {
                 alert("힝 속았지?");
-            },50);
+            }, 50);
         }
     </script>
 </head>
@@ -128,16 +145,16 @@
             <div class="t1">
                 <img src="https://t1.daumcdn.net/liveboard/maxim/58d394f7ab304c2eb73f5bf0a84125d6.jpg">
             </div>
-                        <div class="jumbotron_t1">
-            <h1 class="display-4">나홀로 링크 메모장!</h1>
-            <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다.</p>
-            <hr class="my-4">
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" id="posting_box_btn" onclick="posting_box()" href="#"
-                    role="button">포스팅박스 열기</a>
-            </p>
+            <div class="jumbotron_t1">
+                <h1 class="display-4">나홀로 링크 메모장!</h1>
+                <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다.</p>
+                <hr class="my-4">
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" id="posting_box_btn" onclick="posting_box()" href="#"
+                        role="button">포스팅박스 열기</a>
+                </p>
+            </div>
         </div>
-    </div>
 
         <form>
             <div class="posting_box">
