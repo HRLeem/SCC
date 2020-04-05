@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Title</title>
+
+    <script>
+        function sival() {
+            $.ajax({
+                type: "POST",
+                url: "/test",
+                data: { title_give: '아졸령' },
+                success: function (response) {
+                    console.log(response)
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <a href="/mypage">마이페이지</a>
+    <form method="GET" action="mypage">
+        <button type="submit">마이페이지</button>
+    </form>
+    <form method="GET" action="airpods">
+        <button type="submit">에어팟 프로 구매하러가기</button>
+    </form>
+    <hr>
+    <form method="GET" action="test">
+        <button type="submit">TEST_GET</button>
+    </form>
+    <!--
+    <form method="POST" action="test">
+        <button type="submit">TEST_POST</button>
+    </form>
+    -->
+    <button onclick="sival()">TEST_POST</button>
+</body>
+
+</html>
